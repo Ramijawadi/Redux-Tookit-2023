@@ -8,6 +8,7 @@ const createStore = redux.createStore;
 const CAKE_ORDERS= 'CAKE_ORDERS' ;
 
 
+//action creator
 function OrderCake (){
 
     return{
@@ -18,13 +19,14 @@ function OrderCake (){
 
 }
 
+//initial state
 const initialState = {
 
     numOfCakes : 10 
 }
 
 
-//(previous state , action)=> new state
+//(previous state , action)=> new state .. the Reducer
 
 
 const reducer = (state = initialState , action) => {
@@ -43,12 +45,14 @@ default:
 const store = createStore(reducer);
 console.log('initial state' , store.getState())
 
-const unsubscribe = store.subscribe(()=> {
 
+
+//subscribe the store or connect the store
+const unsubscribe = store.subscribe(()=> {
     console.log("update state", store.getState())
 })
 
-
+ // dispatch actions
 store.dispatch(OrderCake());
 store.dispatch(OrderCake());
 store.dispatch(OrderCake());
