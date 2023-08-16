@@ -6,7 +6,8 @@ const createStore = redux.createStore;
 
 //action
 const CAKE_ORDERS= 'CAKE_ORDERS' ;
-
+const CAKE_RESTOCK = 'CAKE_RESTOCK';
+const CAKE_lOSS = 'CAKE_lOSS';
 
 //action creator
 function OrderCake (){
@@ -17,6 +18,25 @@ function OrderCake (){
 
     }
 
+}
+
+ function Restock (qte = 1){
+return {
+
+    type :CAKE_RESTOCK ,
+    quantity : qte 
+
+}
+
+}
+
+function Loss (qte = 1){
+
+    return {
+
+        type:CAKE_lOSS,
+        quantity : qte
+    }
 }
 
 //initial state
@@ -37,6 +57,20 @@ CAKE_ORDERS : return{
     ...state , 
     numOfCakes : state.numOfCakes - 1 ,
 }
+   case 
+   CAKE_RESTOCK : 
+   return {
+...state,
+numOfCakes: state.numOfCakes + action.quantity
+
+   }
+   case 
+   CAKE_lOSS : 
+   return {
+    ...state ,
+    numOfCakes: state.numOfCakes - action.quantity
+   }
+
 default:
     return state
  }
@@ -56,3 +90,5 @@ const unsubscribe = store.subscribe(()=> {
 store.dispatch(OrderCake());
 store.dispatch(OrderCake());
 store.dispatch(OrderCake());
+store.dispatch(Restock(3));
+store.dispatch(Loss(5));
