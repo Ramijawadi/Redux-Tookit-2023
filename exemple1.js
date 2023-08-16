@@ -3,6 +3,9 @@ const combineReducers = redux.combineReducers;
 //create store from redux
 const createStore = redux.createStore;
 const bindActionCreators = redux.bindActionCreators;
+const reduxLogger = require('redux-logger');
+const logger = reduxLogger.createLogger();
+const applyMiddleware = redux.applyMiddleware;
 
 
 //action
@@ -143,14 +146,14 @@ const rootReducer = combineReducers({
 })
 
 
-const store = createStore(rootReducer);
+const store = createStore(rootReducer  , applyMiddleware(logger));
 console.log('initial state', store.getState())
 
 
 
 //subscribe the store or connect the store
 const unsubscribe = store.subscribe(() => {
-    console.log("update state", store.getState())
+    // console.log("update state", store.getState())
 })
 
 // dispatch actions
