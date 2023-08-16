@@ -14,7 +14,7 @@ function OrderCake (){
 
     return{
         type : CAKE_ORDERS,
-        quantity : 1 ,
+        payload : 1 ,
 
     }
 
@@ -24,7 +24,7 @@ function OrderCake (){
 return {
 
     type :CAKE_RESTOCK ,
-    quantity : qte 
+    payload : qte 
 
 }
 
@@ -35,7 +35,7 @@ function Loss (qte = 1){
     return {
 
         type:CAKE_lOSS,
-        quantity : qte
+        payload : qte
     }
 }
 
@@ -61,14 +61,14 @@ CAKE_ORDERS : return{
    CAKE_RESTOCK : 
    return {
 ...state,
-numOfCakes: state.numOfCakes + action.quantity
+numOfCakes: state.numOfCakes + action.payload
 
    }
    case 
    CAKE_lOSS : 
    return {
     ...state ,
-    numOfCakes: state.numOfCakes - action.quantity
+    numOfCakes: state.numOfCakes - action.payload
    }
 
 default:
