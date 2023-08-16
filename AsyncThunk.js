@@ -55,7 +55,6 @@ const store = configureStore ({
 
 //dispatch 
 store.subscribe(()=> {
-
     console.log(store.getState())
 })
 
