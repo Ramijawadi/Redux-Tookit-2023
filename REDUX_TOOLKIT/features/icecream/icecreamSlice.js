@@ -23,19 +23,19 @@ const iceCreamSlice = createSlice({
             state.numOfCream += action.payload
         },
     },
-    //on utulise si on veu modifier un autre reducer  dans le notre slice
-    // extraReducers: {
-    //     ['cake/order']: (state) => {
-    //         state.numOfCream--
-    //     },}
-
-    extraReducers: (builder) => {
-
-        builder.addCase(cakeActions.order, (state) => {
-
+    //on utulise map object notation 
+    extraReducers: {
+        ['cake/order']: (state) => {
             state.numOfCream--
-        }
-)}
+        },}
+
+//     extraReducers: (builder) => {
+
+//         builder.addCase(cakeActions.order, (state) => {
+
+//             state.numOfCream--
+//         }
+// )}
 
 
 
