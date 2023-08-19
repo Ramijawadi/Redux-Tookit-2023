@@ -11,7 +11,7 @@ const dispatch = useDispatch()
     <h1> number of ice Cream  {numOfCream}</h1>
     <button onClick={()=>dispatch(iceCremeOrder())} > order ice Cream</button> <br /><br />
 
-    <input type='number' value={value} onChange={(e)=>setValue(parseInt (e.target.value))} />
+    <input type='number' value={value} onChange={(e)=>setValue(parseInt (e.target.value))} /> <br /> <br />
 
     <button onClick={()=>dispatch(iceCremeRestock(value))}> restock ice Creams </button>
         </div>

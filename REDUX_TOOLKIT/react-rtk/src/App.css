@@ -40,3 +40,8 @@
 .read-the-docs {
   color: #888;
 }
+.content {
+  padding: 50px;
+  colorText: rgba(40, 33, 33, 0.05);
+  border-radius: 4px;
+}

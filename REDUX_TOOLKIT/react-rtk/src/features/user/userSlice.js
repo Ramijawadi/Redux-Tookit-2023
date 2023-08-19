@@ -11,7 +11,7 @@ const initialState = {
 
 export const fetchUsers = createAsyncThunk('user/fetchUsers', () => {
     return (
-        axios.get(API).then((response) => response.data.map((user) => user.id))
+        axios.get(API).then((response) => response.data)
     )
 })
 
